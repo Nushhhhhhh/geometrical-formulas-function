@@ -115,5 +115,78 @@ if shapes == "2D Shape":
             perimeter = kite_perimeter(a,b)
             st.write(f"The perimeter of the kite is: {perimeter}")
 
+    elif cal == "Circle":
+        cir = st.radio("Select the circle", ("Circle", "Semicircle" ,"Quater Circle", "Circular Sector", "Circular Segment" ,"Annulus", "Ellipse"))
+        if cir == "Circle":
+            per =  st.radio("Select the calculation", ("Area", "Circumference"))
+            if per == "Area":
+                r = st.number_input("Enter the radius of the circle")
+                area = circle_area(r)
+                st.write(f"The area of the circle is: {area}")
+            elif per == "Circumference":
+                r = st.number_input("Enter the radius of the circle")
+                circumference = circle_circumference(r)
+                st.write(f"The cirumference of the circle is: {circumference}")
+        elif cir == "Semicircle":
+            per =  st.radio("Select the calculation", ("Area", "Perimeter"))
+            if per == "Area":
+                r = st.number_input("Enter the radius of the semicircle")
+                area = semicircle_area(r)
+                st.write(f"The area of the semicircle is: {area}")
+            elif per == "Perimeter":
+                r = st.number_input("Enter the radius of the semicircle")
+                perimeter = semicircle_primeter(r)
+                st.write(f"The perimeter of the semicircle is: {perimeter}")
+        elif cir == "Quate Circle":
+            per =  st.radio("Select the calculation", ("Area", "Perimeter"))
+            if per == "Area":
+                r = st.number_input("Enter the radius of the quater circle")
+                area = quartercircle_area(r)
+                st.write(f"The area of the quater circle is: {area}")
+            elif per == "Perimeter":
+                r = st.number_input("Enter the radius of the quater circle")
+                perimeter = quatercircle_perimeter(r)
+                st.write(f"The perimeter of the quater circle is: {perimeter}")
+        elif cir == "Circular Sector":
+            per =  st.radio("Select the calculation", ("Arc Length", "Area"))
+            if per == "Area":
+                r = st.number_input("Enter the radius of the circular sector")
+                theta=st.number_input("Enter the value of theta of the circular sector")
+                area = circular_sector_area(theta,r)
+                st.write(f"The area of the circular sector is: {area}")
+            elif per == "Arc Length":
+                r = st.number_input("Enter the radius of the circular sector")
+                theta=st.number_input("Enter the value of theta of the circular sector")
+                arc_length = circular_sector_arc(theta, r)
+                st.write(f"The arc length of the circular sector is: {arc_length}")   
+        elif cir == "Circular Segment":
+            per =  st.radio("Select the calculation", ("Area"))
+            if per == "Area":
+                sector = st.number_input("Enter the value of sector of  circular segment")
+                triangle =st.number_input("Enter the value of triangle of  circular sector")
+                area = circular_segment_area(sector, triangle)
+                st.write(f"The area of the circular segment is: {area}")    
+        elif cir == "Annulus":
+            per =  st.radio("Select the calculation", ("Outer Circumference", "Inner Circumference", "Area"))
+            if per == "Area":
+                R = st.number_input("Enter the radius of the outer circle of annulus")
+                r = st.number_input("Enter the radius of the inner circle of the annulus")
+                area = annulus_area(R,r)
+                st.write(f"The area of the annulus is: {area}")
+            if per == "Outer Circumference":
+                R = st.number_input("Enter the radius of the outer circle of annulus")
+                o_circumference = outer_circumference(R)
+                st.write(f"The outer circumference of the annulus is: {o_circumference}")
+            if per == "Inner Circumference":
+                r = st.number_input("Enter the radius of the inner circle of the annulus")
+                i_circumference = inner_circumference(r)
+                st.write(f"The inner circumference of the annulus is: {i_circumference}")
+        elif cir == "Ellipse":
+            per =  st.radio("Select the calculation", ("Area"))
+            if per == "Area":
+                a = st.number_input("Enter the value of semi major axis of ellipse")
+                b =st.number_input("Enter the value of semi minor axis of ellipse")
+                area = ellipse_area(a,b)
+                st.write(f"The area of the ellipse is: {area}")
     else: 
         pass
