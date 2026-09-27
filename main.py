@@ -188,5 +188,47 @@ if shapes == "2D Shape":
                 b =st.number_input("Enter the value of semi minor axis of ellipse")
                 area = ellipse_area(a,b)
                 st.write(f"The area of the ellipse is: {area}")
+    elif cal == "Polygon":
+        per =  st.radio("Select the calculation", ("Area", "Perimeter"))
+        if per == "Area":
+            apothem = st.number_input("Enter the value of apothem of polygon")
+            perimeter = st.number_input("Enter the valus of perimeter of polygon")
+            area = polygon_area(apothem, perimeter)
+            st.write(f"The area of the polygon is: {area}")
+        if per == "Perimeter":
+            n = st.number_input("Enter the number of sides  of the polygon")
+            a = st.number_input("Enter the length of one side of the polygon")
+            perimeter = polygon_perimeter(n,a)
+            st.write(f"The perimeter of the polygon is: {perimeter}")
+    elif cal == "Hexagon":
+        per =  st.radio("Select the calculation", ("Area", "Perimeter"))
+        if per == "Area":
+            a = st.number_input("Enter the length of one side of the hexagon")
+            area = hexagon_area(a)
+            st.write(f"The area of the hexagon is: {area}")
+        if per == "Perimeter":
+            a = st.number_input("Enter the length of one side of the hexagon")
+            perimeter = heaxagon_perimeter(a)
+            st.write(f"The perimeter of the hexagon is: {perimeter}")
+    elif cal == "Pentagon":
+        per =  st.radio("Select the calculation", ("Area", "Perimeter"))
+        if per == "Area":
+            a = st.number_input("Enter the length of one side of the pentagon")
+            area = pentagon_area(a)
+            st.write(f"The area of the pentagon is: {area}")
+        if per == "Perimeter":
+            a = st.number_input("Enter the length of one side of the pentagon")
+            perimeter = pentagon_perimeter(a)
+            st.write(f"The perimeter of the pentagon is: {perimeter}")
+    elif cal == "Octagon":
+        per =  st.radio("Select the calculation", ("Area", "Perimeter"))
+        if per == "Area":
+            a = st.number_input("Enter the length of one side of the octagon")
+            area = octagon_area(a)
+            st.write(f"The area of the octagon is: {area}")
+        if per == "Perimeter":
+            a = st.number_input("Enter the length of one side of the octagon")
+            perimeter = octagon_perimeter(a)
+            st.write(f"The perimeter of the octagon is: {perimeter}")    
     else: 
         pass
