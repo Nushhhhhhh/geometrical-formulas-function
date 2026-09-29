@@ -97,24 +97,27 @@ if shapes == "2D Shape":
             area = kite_area(d1, d2)
             st.write(f"The area of the kite is: {area}")
         if per == "Perimeter":
-            a = st.number_input("Enter side of the kite")
-            b = st.number_input("Enter side of the kite")
+            a = st.number_input("Enter side of the kite", key="kite_side_a")
+            b = st.number_input("Enter another side of the kite", key="kite_side_b")
             perimeter = kite_perimeter(a,b)
             st.write(f"The perimeter of the kite is: {perimeter}")
 
     elif cal == "Trapezium":
         per =  st.radio("Select the calculation", ("Area", "Perimeter"))
         if per == "Area":
-            d1 = st.number_input("Enter the first diagnol of the kite")
-            d2 = st.number_input("Enter the second diagnol of the kite")
-            area = kite_area(d1, d2)
-            st.write(f"The area of the kite is: {area}")
+            a = st.number_input("Enter the first parallel side", key="trap_a")
+            b = st.number_input("Enter the second parallel side", key="trap_b")
+            h = st.number_input("Enter the height", key="trap_h")
+            area = trapezium_area(a, b, h)
+            st.write(f"The area of the trapezium is: {area}")
         if per == "Perimeter":
-            a = st.number_input("Enter side of the kite")
-            b = st.number_input("Enter side of the kite")
-            perimeter = kite_perimeter(a,b)
-            st.write(f"The perimeter of the kite is: {perimeter}")
-
+            a = st.number_input("Enter first side", key="trap_side_a")
+            b = st.number_input("Enter second side", key="trap_side_b")
+            c = st.number_input("Enter third side", key="trap_side_c")
+            d = st.number_input("Enter fourth side", key="trap_side_d")
+            perimeter = trapezium_perimeter(a, b, c, d)
+            st.write(f"The perimeter of the trapezium is: {perimeter}")
+    
     elif cal == "Circle":
         cir = st.radio("Select the circle", ("Circle", "Semicircle" ,"Quater Circle", "Circular Sector", "Circular Segment" ,"Annulus", "Ellipse"))
         if cir == "Circle":
@@ -137,7 +140,7 @@ if shapes == "2D Shape":
                 r = st.number_input("Enter the radius of the semicircle")
                 perimeter = semicircle_primeter(r)
                 st.write(f"The perimeter of the semicircle is: {perimeter}")
-        elif cir == "Quate Circle":
+        elif cir == "Quater Circle":
             per =  st.radio("Select the calculation", ("Area", "Perimeter"))
             if per == "Area":
                 r = st.number_input("Enter the radius of the quater circle")
@@ -188,6 +191,7 @@ if shapes == "2D Shape":
                 b =st.number_input("Enter the value of semi minor axis of ellipse")
                 area = ellipse_area(a,b)
                 st.write(f"The area of the ellipse is: {area}")
+    
     elif cal == "Polygon":
         per =  st.radio("Select the calculation", ("Area", "Perimeter"))
         if per == "Area":
@@ -200,6 +204,7 @@ if shapes == "2D Shape":
             a = st.number_input("Enter the length of one side of the polygon")
             perimeter = polygon_perimeter(n,a)
             st.write(f"The perimeter of the polygon is: {perimeter}")
+    
     elif cal == "Hexagon":
         per =  st.radio("Select the calculation", ("Area", "Perimeter"))
         if per == "Area":
@@ -210,6 +215,7 @@ if shapes == "2D Shape":
             a = st.number_input("Enter the length of one side of the hexagon")
             perimeter = heaxagon_perimeter(a)
             st.write(f"The perimeter of the hexagon is: {perimeter}")
+    
     elif cal == "Pentagon":
         per =  st.radio("Select the calculation", ("Area", "Perimeter"))
         if per == "Area":
@@ -220,6 +226,7 @@ if shapes == "2D Shape":
             a = st.number_input("Enter the length of one side of the pentagon")
             perimeter = pentagon_perimeter(a)
             st.write(f"The perimeter of the pentagon is: {perimeter}")
+    
     elif cal == "Octagon":
         per =  st.radio("Select the calculation", ("Area", "Perimeter"))
         if per == "Area":
@@ -230,5 +237,22 @@ if shapes == "2D Shape":
             a = st.number_input("Enter the length of one side of the octagon")
             perimeter = octagon_perimeter(a)
             st.write(f"The perimeter of the octagon is: {perimeter}")    
+    
     else: 
         pass
+
+# if shapes == "3D Shape":
+#     cal = st.radio("Select the figure", ("Cube", "Cuboid", "Cylinder","Sphere","Cone", "Prism", "Ellipsoid", "Octahedron","Pyramid"))
+
+#     if cal == "Rectangle":
+#         per =  st.radio("Select the calculation", ("Area", "Perimeter"))
+#         if per == "Area":
+#             l = st.number_input("Enter the length of the rectangle")
+#             w = st.number_input("Enter the width of the rectangle")
+#             area = rectangle_area(l, w)
+#             st.write(f"The area of the rectangle is: {area}")
+#         elif per == "Perimeter":
+#             l = st.number_input("Enter the length of the rectangle")
+#             w = st.number_input("Enter the width of the rectangle") 
+#             perimeter = rectangle_perimeter(l, w)
+#             st.write(f"The perimeter of the rectangle is: {perimeter}")
