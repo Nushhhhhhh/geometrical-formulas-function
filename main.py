@@ -241,18 +241,108 @@ if shapes == "2D Shape":
     else: 
         pass
 
-# if shapes == "3D Shape":
-#     cal = st.radio("Select the figure", ("Cube", "Cuboid", "Cylinder","Sphere","Cone", "Prism", "Ellipsoid", "Octahedron","Pyramid"))
+if shapes == "3D Shape":
+    cal = st.radio("Select the figure", ("Cube", "Cuboid", "Cylinder","Sphere","Cone", "Prism", "Ellipsoid", "Octahedron","Pyramid"))
 
-#     if cal == "Rectangle":
-#         per =  st.radio("Select the calculation", ("Area", "Perimeter"))
-#         if per == "Area":
-#             l = st.number_input("Enter the length of the rectangle")
-#             w = st.number_input("Enter the width of the rectangle")
-#             area = rectangle_area(l, w)
-#             st.write(f"The area of the rectangle is: {area}")
-#         elif per == "Perimeter":
-#             l = st.number_input("Enter the length of the rectangle")
-#             w = st.number_input("Enter the width of the rectangle") 
-#             perimeter = rectangle_perimeter(l, w)
-#             st.write(f"The perimeter of the rectangle is: {perimeter}")
+    if cal == "Cube":
+        per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
+        if per == "Volume":
+            a = st.number_input("Enter a side of the cube")
+            volume = cube_volume(a)
+            st.write(f"The volume of the cube is: {volume}")
+        elif per == "Total Surface Area":
+            a = st.number_input("Enter a side of the cube")
+            tsa = cube_tsa(a)
+            st.write(f"The total surface area of the cube  is: {tsa}")
+
+    elif cal == "Cuboid ":
+        per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
+        if per == "Volume":
+            a = st.number_input("Enter a side of the cube")
+            volume = cube_volume(a)
+            st.write(f"The volume of the cube is: {volume}")
+        elif per == "Total Surface Area":
+            a = st.number_input("Enter a side of the cube")
+            tsa = cube_tsa(a)
+            st.write(f"The total surface area of the cube  is: {tsa}")
+
+    elif cal == "Cylinder":
+        cy = st.radio("Select the Cylinder", ("Normal Cylinder", "Hollow Cylinder"))
+        if cy == "Normal Cylinder":
+            per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
+            if per == "Volume":
+                r = st.number_input("Enter the radius of the cylinder")
+                h = st.number_input("Enter the height of the cylinder")
+                volume = cylinder_volume(r,h)
+                st.write(f"The volume of the cylinder is: {volume}")
+            elif per == "Total Surface Area":
+                r = st.number_input("Enter the radius of the cylinder")
+                h = st.number_input("Enter the height of the cylinder")
+                tsa = cylinder_tsa(r,h)
+                st.write(f"The total surface area of the cylinder is: {tsa}")
+        elif cy == "Hollow Cylinder":
+            per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
+            if per == "Volume":
+                R = st.number_input("Enter the outer radius of the cylinder")
+                r = st.number_input("Enter the inner radius of the cylinder")
+                h = st.number_input("Enter the height of the cylinder")
+                volume = hollow_cylinder_volume(R,r,h)
+                st.write(f"The volume of the hollow cylinder is: {volume}")
+            elif per == "Total Surface Area":
+                R = st.number_input("Enter the outer radius of the cylinder")
+                r = st.number_input("Enter the inner radius of the cylinder")
+                h = st.number_input("Enter the height of the cylinder")
+                tsa = hollow_cylinder_tsa(R,r,h)
+                st.write(f"The total surface area of the hollow cylinder is: {tsa}")
+
+    elif cal == "Sphere":
+        sp = st.radio("Select the Sphere", ("Sphere", "Hemisphere"))
+        if sp == "Sphere":
+            per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
+            if per == "Volume":
+                r = st.number_input("Enter the radius of the sphere")
+                volume = sphere_volume(r)
+                st.write(f"The volume of the sphere is: {volume}")
+            elif per == "Total Surface Area":
+                r = st.number_input("Enter the radius of the sphere")
+                tsa = sphere_tsa(r)
+                st.write(f"The total surface area of the sphere is: {tsa}")
+        elif sp == "Hemisphere":
+            per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
+            if per == "Volume":
+                r = st.number_input("Enter the radius of the hemisphere")
+                volume = hemisphere_volume(r)
+                st.write(f"The volume of the hemisphere is: {volume}")
+            elif per == "Total Surface Area":
+                r = st.number_input("Enter the radius of the hemisphere")
+                tsa = hemisphere_tsa(r)
+                st.write(f"The total surface area of the hemisphere is: {tsa}")
+
+    elif cal == "Cone":
+        cn = st.radio("Select the Sphere", ("Cone", "Frustum of Cone"))
+        if cn == "Cone":
+            per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
+            if per == "Volume":
+                r = st.number_input("Enter the radius of the cone")
+                h = st.number_input("Enter the height of the cone")
+                volume = cone_volume(r)
+                st.write(f"The volume of the cone is: {volume}")
+            elif per == "Total Surface Area":
+                r = st.number_input("Enter the radius of the cone")
+                h = st.number_input("Enter the slant height of the cone")
+                tsa = cone_tsa(r)
+                st.write(f"The total surface area of the cone is: {tsa}")
+        elif cn == "Frustum of Cone":
+            per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
+            if per == "Volume":
+                R = st.number_input("Enter the outer radius of the frustum of cone")
+                r = st.number_input("Enter the inner radius of the frustum of cone")
+                h = st.number_input("Enter the height of the frustum of cone")
+                volume = frustum_of_cone_volume(R,r,h)
+                st.write(f"The volume of the frustum of cone is: {volume}")
+            elif per == "Total Surface Area":
+                R = st.number_input("Enter the outer radius of the frustum of cone")
+                r = st.number_input("Enter the inner radius of the frustum of cone")
+                s = st.number_input("Enter the slant height of the frustum of cone")
+                tsa = frustum_of_cone_tsa(R,r,s)
+                st.write(f"The total surface area of the frustum of cone is: {tsa}")
