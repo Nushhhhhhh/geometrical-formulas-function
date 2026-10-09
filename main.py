@@ -255,7 +255,7 @@ if shapes == "3D Shape":
             tsa = cube_tsa(a)
             st.write(f"The total surface area of the cube  is: {tsa}")
 
-    elif cal == "Cuboid ":
+    elif cal == "Cuboid":
         per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
         if per == "Volume":
             a = st.number_input("Enter a side of the cube")
@@ -346,3 +346,111 @@ if shapes == "3D Shape":
                 s = st.number_input("Enter the slant height of the frustum of cone")
                 tsa = frustum_of_cone_tsa(R,r,s)
                 st.write(f"The total surface area of the frustum of cone is: {tsa}")
+    
+    elif cal == "Prism":
+        pr = st.radio("Select the Prism", ("Prism", "Triangular Prism"))
+        if pr == "Prism":
+            per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
+            if per == "Volume":
+                base_area = st.number_input("Enter the base area of the prism")
+                h = st.number_input("Enter the height of the prism")
+                volume = prism_volume(base_area, h)
+                st.write(f"The volume of the prism is: {volume}")
+            elif per == "Total Surface Area":
+                B = st.number_input("Enter the base area of the  prism")
+                P = st.number_input("Enter the base perimeter of the prism")
+                h = st.number_input("Enter the height of the prism")
+                tsa = prism_tsa(B, P, h)
+                st.write(f"The total surface area of the prism is: {tsa}")
+        elif pr == "Triangular Prism":
+            per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
+            if per == "Volume":
+                b = st.number_input("Enter the base of the triangular face of the triangular prism")
+                l = st.number_input("Enter the  length of the prism")
+                h = st.number_input("Enter the height of the triangular face of the triangular prism")
+                volume = triangular_prism_volume(b,h,l)
+                st.write(f"The volume of the triangular face is: {volume}")    
+            elif per == "Total Surface Area":
+                triangular_area = st.number_input("Enter the triangular area of the triangular face of the triangular prism", key="triangular_prism_area")
+                l = st.number_input("Enter the length of the triangular prism", key="triangular_prism_length")
+                a = st.number_input("Enter the first side of the triangular face of the triangular prism", key="triangular_prism_first_side")
+                b = st.number_input("Enter the second side of the triangular face of the triangular prism", key="triangular_prism_second_side")
+                c = st.number_input("Enter the third side of the triangular face of the triangular prism", key="triangular_prism_third_side")
+                tsa = triangular_prism_tsa(triangular_area, l, a, b, c)
+                st.write(f"The total surface area of the triangular prism is: {tsa}")
+
+    elif cal == "Ellipsoid":
+        per =  st.radio("Select the calculation", ("Volume"))
+        if per == "Volume":
+            a = st.number_input("Enter Semi-axis length along x-axis")
+            b = st.number_input("Enter Semi-axis length along y-axis")
+            c = st.number_input("Enter Semi-axis length along z-axis")
+            volume = ellipsoid_volume(a, b, c)
+            st.write(f"The volume of the ellipsoid is: {volume}")
+
+    elif cal == "Octahedron":
+        per =  st.radio("Select the calculation", ("Total Surface Area"))
+        if per == "Total Surface Area":
+            a = st.number_input("Enter Edge length of the octahedron")
+            b = st.number_input("Enter Semi-axis length along y-axis")
+            c = st.number_input("Enter Semi-axis length along z-axis")
+            tsa = octahedron_tsa(a)
+            st.write(f"The total surface area of the octahedron is: {tsa}")
+
+    elif cal == "Pyramid":
+        cir = st.radio("Select the pyramid", ("Pyramid", "Square Pyramid" ,"Rectangular Pyramid", "Frustum of Pyramid", "Tetrahedron"))
+        if cir == "Pyramid":
+            per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
+            if per == "Volume":
+                base_area = st.number_input("Enter the base area of the pyramid")
+                h = st.number_input("Enter the height of the pyramid")
+                volume = pyramid_volume(base_area,h)
+                st.write(f"The area of the pyramid is: {volume}")
+            elif per == "Total Surface Area":
+                B = st.number_input("Enter the base area of the pyramid of the square pyramid")
+                P = st.number_input("Enter the base perimeter of the pyramid")
+                s = st.number_input("Enter the side of the pyramid")                
+                tsa = pyramid_tsa(B,P,s)
+                st.write(f"The total surface area of the pyramid is: {tsa}")
+        elif cir == "Square Pyramid":
+            per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
+            if per == "Volume":
+                a = st.number_input("Enter the length of the base side of the square pyramid")                
+                h = st.number_input("Enter the height of the square pyramid")
+                volume = square_pyramid_volume(a,h)
+                st.write(f"The volume of the square pyramid is: {volume}")
+            elif per == "Total Surface Area":
+                a = st.number_input("Enter the base side of the square pyramid")
+                s = st.number_input("Enter the slant height of the square pyramid")
+                tsa = square_pyramid_tsa(a,s)
+                st.write(f"The total surface area of the square pyramid is: {tsa}")
+        elif cir == "Rectangular Pyramid":
+            per =  st.radio("Select the calculation", ("Volume", "Total Surface Area"))
+            if per == "Volume":
+                l = st.number_input("Enter the base length of the reactangular pyramid")                
+                w = st.number_input("Enter the base width of the rectangular pyramid")
+                h = st.number_input("Enter the height of the rectangular pyramid")
+                volume = rectangular_pyramid_volume(l,w,h)
+                st.write(f"The volume of the rectangular pyramid is: {volume}")
+            elif per == "Total Surface Area":
+                l = st.number_input("Enter the base length of the reactangular pyramid")                
+                w = st.number_input("Enter the base width of the rectangular pyramid")
+                s1 = st.number_input("Enter the slant height along the length side of the square pyramid")
+                s2 = st.number_input("Enter the slant height along the width side of the square pyramid")
+                tsa = rectangular_pyramid_tsa(l,w,s1,s2)
+                st.write(f"The total surface area of the rectangular pyramid is: {tsa}")
+        elif cir == "Frustum of Pyramid":
+            per =  st.radio("Select the calculation", ("Volume"))
+            if per == "Volume":
+                A1 = st.number_input("Enter the area of lower base of the frustum of pyramid")
+                A2 = st.number_input("Enter the area of upper base of the frustum of pyramid")
+                h = st.number_input("Enter the height of the frustum of pyramid")
+                theta=st.number_input("Enter the value of theta of the circular sector")
+                volume = frustum_of_pyramid_volume(A1, A2, h)
+                st.write(f"The volume of the frustum of pyramid: {volume}")    
+        elif cir == "Tetrahedron":
+            per =  st.radio("Select the calculation", ("Total Surface Area"))
+            if per == "Total Surface Area":
+                a = st.number_input("Enter the edge of the tetrahedron")
+                tsa = tetrahedron_tsa(a)
+                st.write(f"The total surface area of the tetrahedron is: {tsa}")    

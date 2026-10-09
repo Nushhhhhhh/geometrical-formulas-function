@@ -175,7 +175,7 @@ def triangular_prism_volume(b, h, l):
     return 0.5 * b * h * l
 
 def triangular_prism_tsa(triangle_area, l, a, b, c):
-    return 2 * triangle_area + l * (a + b + c)
+    return 2 * (triangle_area + l * (a + b + c))
 
 def pyramid_volume(base_area, h):
     return (1/3) * base_area * h
